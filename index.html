@@ -24,7 +24,8 @@
                         @keyup.enter="searchID" v-model="account_id" />
                 </div>
                 <div class="col-2">
-                    <button type="button" class="btn btn-dark" @click="searchID">
+                    <!-- <button type="button" class="btn btn-dark" @click="searchID"> -->
+                    <button type="button" class="btn btn-dark" onclick=javascript:jump()>
                         Search
                     </button>
                 </div>
@@ -42,7 +43,12 @@
             
         </div>
 
-        <script src="js/main.js"></script> 
+        <script src="js/main.js"></script>
+        <script>
+            function jump() {
+                window.location.href = "dashboard.html"
+            };
+        </script>
 
     </body>
 </html>
