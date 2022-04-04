@@ -73,15 +73,17 @@ function renderResult(result) {
   drawCharts()
 }
 
+drawCharts()
+
 
 function drawCharts() {
   // Graphs
-  var ctx = document.getElementById('myChart')
+  var ctx = document.getElementById('likeChart')
   // eslint-disable-next-line no-unused-vars
-  var myChart = new Chart(ctx, {
+  var likeChart = new Chart(ctx, {
     type: 'line',
     data: {
-      labels: Array.from(Array(6).keys()),
+      labels: Array.from(Array(25).keys()),
       datasets: [{
         data: report.like_cnt,
         lineTension: 0,
@@ -92,10 +94,35 @@ function drawCharts() {
       }]
     },
     options: {
-      title: {
-          display: true,
-          text: 'Likes for Recent 25 Posts'
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: false
+          }
+        }]
       },
+      legend: {
+        display: false
+      }
+    }
+  })
+
+  var ctx = document.getElementById('cmtChart')
+  // eslint-disable-next-line no-unused-vars
+  var cmtChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: Array.from(Array(25).keys()),
+      datasets: [{
+        data: report.cmt_cnt,
+        lineTension: 0,
+        backgroundColor: 'transparent',
+        borderColor: '#F57ED4',
+        borderWidth: 4,
+        pointBackgroundColor: '#F57ED4'
+      }]
+    },
+    options: {
       scales: {
         yAxes: [{
           ticks: {
