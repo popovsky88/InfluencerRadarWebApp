@@ -5,13 +5,6 @@ var report = new Vue({
   data:{
       username: "",
       active_section: 0,
-      // user_info: {
-      //   "biography": "\ud83d\udd35\ud83d\udd34 Me\u0301s Que Un Club\nWe \u2764\ufe0f #Culers\n\ud83d\ude4c #Forc\u0327aBarc\u0327a & #CampNou \ud83c\udfdf\n\ud83d\uddf3 Vote for the #Bar\u00e7aOscars\ud83d\udc47", 
-      //   "id": "17841400710194068", 
-      //   "ig_id": 260375673, 
-      //   "followers_count": 107081471, 
-      //   "media_count": 16236
-      // },
       user_info: {},
       img_urls: [
         "../data/likes_25.png",
@@ -73,6 +66,8 @@ var url = decodeURI(window.location.href);
 
 report.username = url.split("?accountid=")[1];
 
+callAPI()
+drawCharts()
 
 // define the callAPI function that takes a first name and last name as parameters
 function callAPI() {
@@ -107,7 +102,6 @@ function renderResult(result) {
   // 2. drawCharts()
 }
 
-drawCharts()
 
 function drawCharts() {
   // Graphs
