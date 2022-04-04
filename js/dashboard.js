@@ -83,7 +83,7 @@ function drawCharts() {
     data: {
       labels: Array.from(Array(6).keys()),
       datasets: [{
-        data: report.like_cnts,
+        data: report.like_cnt,
         lineTension: 0,
         backgroundColor: 'transparent',
         borderColor: '#007bff',
