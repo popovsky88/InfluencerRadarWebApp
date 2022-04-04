@@ -6,45 +6,11 @@ var report = new Vue({
       username: "",
       active_section: 0,
       user_info: {},
-      img_urls: [
-        "../data/likes_25.png",
-        "../data/cmts_25.png",
-        "../data/recent_cmt_bar.png",
-        "../data/recent_cmt_line.png"
-      ],
-      posts: [
-          {
-              time: "2022-03-28 18:55",
-              comments: 1123,
-              likes: 683882,
-              caption: "This duo is…"
-          },
-          {
-              time: "2022-03-23 20:00",
-              comments: 864,
-              likes: 571141,
-              caption: "Sempre culer"
-          },
-          {
-              time: "2022-03-25 14:01",
-              comments: 987,
-              likes: 385326,
-              caption: "Vine a animar el fcbfemeni i fem rècord d'assistència!"
-          },
-
-      ],
-      hashtags: [
-          {hashtag: '#BarçaOscars', count: 5},
-          {hashtag: '##madeinlamasia', count: 2},
-          {hashtag: '#trainingpartner', count: 1},
-          {hashtag: '#OTD', count: 1},
-          {hashtag: '#MoreThanempowerment', count: 1},
-          {hashtag: '#MésQueGènere', count: 1},
-          {hashtag: '#ElClásico', count: 1},
-          {hashtag: '#Oscar', count: 1},
-      ],
-      cmt_cnts: [1,2,9,4,5,6],
-      like_cnts: [23,56,4324,58,373,34]
+      img_urls: [],
+      posts: [],
+      hashtags: [],
+      cmt_cnt: [],
+      like_cnt: [],
     },
     methods: {
         clickZero: function() {
@@ -67,7 +33,6 @@ var url = decodeURI(window.location.href);
 report.username = url.split("?accountid=")[1];
 
 callAPI()
-drawCharts()
 
 // define the callAPI function that takes a first name and last name as parameters
 function callAPI() {
@@ -92,14 +57,19 @@ function callAPI() {
 }
 
 function renderResult(result) {
-  // alert(JSON.parse(result).body)
-  console.log(JSON.parse(result).user_info)
 
-  data = JSON.parse(result).user_info
-  report.user_info = JSON.parse(data)
+  var data = JSON.parse(result)
 
   // 1. set Vue data
+  report.user_info = JSON.parse(data.user_info)
+  var analysis = JSON.parse(data.account_analysis)
+  report.cmt_cnt = analysis.cmt_cnt
+  report.like_cnt = analysis.like_cnt
+  report.posts = analysis.posts
+  report.hashtags = analysis.hashtags
+
   // 2. drawCharts()
+  drawCharts()
 }
 
 
