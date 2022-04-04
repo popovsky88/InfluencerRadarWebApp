@@ -96,7 +96,8 @@ function callAPI() {
 }
 
 function renderResult(result) {
-  alert(JSON.parse(result).user_info.biography)
+  // alert(JSON.parse(result).body)
+  console.log(JSON.parse(result).user_info)
 
   // 1. set Vue data
   // 2. drawCharts()
