@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="css/style.css">
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 
     </head>
 
@@ -29,30 +31,32 @@
                     <div class="sidebar-sticky">
                        
                         <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" :class="{active: active_section==0}"
-                                href="#" @click="clickZero()">
-                            Profile
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" :class="{active: active_section==1}"
-                                href="#visualizations" @click="clickOne()">
-                            Visualizations
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" :class="{active: active_section==2}"
-                                href="#top3posts" @click="clickTwo()">
-                            Top 3 Popular Posts
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" :class="{active: active_section==3}"
-                                href="#favHashtags" @click="clickThree()">
-                            Favourite Hashtags
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                
+                                <a class="nav-link" :class="{active: active_section==0}"
+                                    href="#" @click="clickZero()">
+                                    <span data-feather="home"></span>
+                                    Profile
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" :class="{active: active_section==1}"
+                                    href="#visualizations" @click="clickOne()">
+                                    Visualizations
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" :class="{active: active_section==2}"
+                                    href="#top3posts" @click="clickTwo()">
+                                    Top 3 Popular Posts
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" :class="{active: active_section==3}"
+                                    href="#favHashtags" @click="clickThree()">
+                                    Favourite Hashtags
+                                </a>
+                            </li>
                         </ul>
                 
                     </div>
@@ -78,9 +82,11 @@
                   </div>
 
                 <h2 id="visualizations" class="section pt-3 pb-2 mb-3 border-bottom">Visualizations</h2>
-                <div>
+                <!-- <div>
                     <img v-for="img_url in img_urls" :src="img_url" width="50%">
-                </div>
+                </div> -->
+
+                <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
                 
         
                 <h2 id="top3posts" class="section">Top 3 Popular Posts</h2>

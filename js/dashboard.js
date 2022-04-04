@@ -48,7 +48,9 @@ var report = new Vue({
           {hashtag: '#MésQueGènere', count: 1},
           {hashtag: '#ElClásico', count: 1},
           {hashtag: '#Oscar', count: 1},
-      ]
+      ],
+      cmt_cnts: [1,2,9,4,5,6],
+      like_cnts: [23,56,4324,58,373,34]
     },
     methods: {
         clickZero: function() {
@@ -72,7 +74,7 @@ report.username = url.split("?accountid=")[1];
 
 
 // define the callAPI function that takes a first name and last name as parameters
-var callAPI = ()=>{
+function callAPI() {
   // instantiate a headers object
   var myHeaders = new Headers();
   // add content type header to object
@@ -94,5 +96,48 @@ var callAPI = ()=>{
 }
 
 function renderResult(result) {
-  alert(JSON.parse(result).body)
+  alert(JSON.parse(result).user_info.biography)
+
+  // 1. set Vue data
+  // 2. drawCharts()
 }
+
+drawCharts()
+
+function drawCharts() {
+  // Graphs
+  var ctx = document.getElementById('myChart')
+  // eslint-disable-next-line no-unused-vars
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: Array.from(Array(6).keys()),
+      datasets: [{
+        data: report.like_cnts,
+        lineTension: 0,
+        backgroundColor: 'transparent',
+        borderColor: '#007bff',
+        borderWidth: 4,
+        pointBackgroundColor: '#007bff'
+      }]
+    },
+    options: {
+      title: {
+          display: true,
+          text: 'Likes for Recent 25 Posts'
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: false
+          }
+        }]
+      },
+      legend: {
+        display: false
+      }
+    }
+  })
+}
+
+// feather.replace()
