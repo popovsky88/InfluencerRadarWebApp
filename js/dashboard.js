@@ -58,11 +58,12 @@ function callAPI() {
 
 function renderResult(result) {
 
-  var data = JSON.parse(result)
+  var user_info = JSON.parse(result).user_info
+  var account_analysis = JSON.parse(result).account_analysis
 
   // 1. set Vue data
-  report.user_info = JSON.parse(data.user_info)
-  var analysis = JSON.parse(data.account_analysis)
+  report.user_info = JSON.parse(user_info)
+  var analysis = JSON.parse(account_analysis)
   report.cmt_cnt = analysis.cmt_cnt
   report.like_cnt = analysis.like_cnt
   report.posts = analysis.posts
