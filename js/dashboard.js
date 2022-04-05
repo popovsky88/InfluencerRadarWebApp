@@ -145,3 +145,11 @@ function drawCharts() {
 }
 
 // feather.replace()
+
+function reloadPage() {
+  account_id = document.getElementById("dashboard-search").value
+  if (account_id != "") {
+    window.location.href="dashboard.html?accountid=" + account_id
+  }
+  
+}
