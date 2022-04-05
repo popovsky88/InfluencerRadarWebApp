@@ -5,8 +5,8 @@ var report = new Vue({
   data:{
       username: "",
       active_section: 0,
+      loading: true,
       user_info: {},
-      img_urls: [],
       posts: [],
       hashtags: [],
       cmt_cnt: [],
@@ -53,7 +53,7 @@ function callAPI() {
   fetch("https://7cks6lydmb.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
   .then(response => response.text())
   .then(result => renderResult(result))
-  .catch(error => console.log('error', error));
+  .catch(error => handleError(error));
 }
 
 function renderResult(result) {
@@ -69,11 +69,18 @@ function renderResult(result) {
   report.posts = analysis.posts
   report.hashtags = analysis.hashtags
 
-  // 2. drawCharts()
+  // 2. remove loading effect
+  report.loading = false
+
+  // 3. drawCharts()
   drawCharts()
 }
 
-drawCharts()
+function handleError(error) {
+  console.log('error', error)
+  alert("Information about this account cannot be fetched due to permission restrictions.");
+  window.opener=null;window.top.open('','_self','');window.close(this);
+}
 
 
 function drawCharts() {
