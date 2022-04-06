@@ -6,6 +6,11 @@ var search = new Vue({
         account_id: "",
         hints: ["Lifestyle", "Food", "Fashion", "Study", "Travel", "Photography", "Makeup", "Game"],
     },
+    methods: {
+        open(hint) {
+            window.open("fields.html?field=" + hint)
+        }
+    }
     
 })
 

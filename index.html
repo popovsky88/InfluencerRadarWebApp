@@ -34,7 +34,7 @@
                 <div class="col-1"></div>
                 <div class="col-11" style="margin-top: 20px">
                     🔥
-                    <button type="button" v-for="(hint, index) in hints" class="btn btn-outline-secondary" style="margin-right: 3px">
+                    <button type="button" v-for="(hint, index) in hints" class="btn btn-outline-secondary" style="margin-right: 3px" @click="open(hint)">
                         {{hint}}
                     </button>
                 </div>         
