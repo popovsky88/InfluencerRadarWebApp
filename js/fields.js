@@ -41,7 +41,7 @@ var influencers = new Vue({
                 {"username": "pxdkitty", "biography": "Loves vegan food \u2022 living in Singapore\n\ud83d\udc31Cat mum: @_tinyterrors\ncurrently fostering 1 cat\n\ud83d\udce6Co-founder: @pixiepax\n\ud83d\udc8cAds & collabs \u2192 pxdkitty@gmail.com", "id": "17841400777870093", "ig_id": 5977929, "followers_count": 105098, "media_count": 1990},
                 {"username": "tippytapp", "biography": "Singapore\njessicathamyx@gmail.com", "id": "17841400489450032", "ig_id": 2064315, "followers_count": 106964, "media_count": 3075},
             ],
-            "photo": [
+            "photography": [
                 {"username": "itshangi","biography": "Platinum Music Producer & Music Director @flipsidepm\nAthlete Manager & Co-Founder at Flipside Elite Team\n\ud83d\udc47\ud83c\udffc Latest single, People", "id": "17841401510060098", "ig_id": 646322335, "followers_count": 157890, "media_count": 842},
                 {"username": "jasminelhr","biography": "my alter ego: @imnotjasminelhr \nmanaged by @titandigitalmedia", "id": "17841401504920075", "ig_id": 4850164, "followers_count": 170875, "media_count": 733},
                 {"username": "katherinaolivia","biography": "\ud83e\udd96\ud83e\uddffEntrepreneur Lifestyle \n\ud83d\udc11\ud83d\udc36@where_is_waltercito \n\ud83d\udce6\ud83d\ude9aQuincus", "id": "17841401258293834", "ig_id": 245417943, "followers_count": 248942, "media_count": 111},
